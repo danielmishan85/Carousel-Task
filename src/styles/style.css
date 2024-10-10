@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  box-sizing: content-box;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+}
+
+/* ----------------------------------------------------------------------------
+-- Carousel header.
+------------------------------------------------------------------------------- */
+
+.carousel-header {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  height: 50px;
+  border-radius: 5px 5px 0 0;
+  border: 1px solid #ddd;
+  background-color: rgb(233, 241, 250);
+  font-size: 14px;
+}
+
+.carousel-header-logo {
+  position: relative;
+}
+
+.carousel-header-logo:hover:after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #071c92;
+}
+
+.carousel-header-title {
+  font-weight: 600;
+  color: #071c92;
+}
+
+.carousel-header-document-number {
+  margin-left: 10px;
+  font-weight: 600;
+  color: #777;
+}
+
+/* ----------------------------------------------------------------------------
+-- Carousel categories panel.
+------------------------------------------------------------------------------- */
+
+.carousel-categories-panel {
+  position: absolute;
+  margin-top: -10px;
+  left: 50%;
+  transition: transform 0.15s, opacity 0.15s;
+  transform: translate(-50%, 0) scale(1);
+  border-radius: 5px;
+  opacity: 1;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  color: #071c92;
+}
+
+.carousel-categories-panel.closed {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.carousel-categories-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-categories-panel-entry {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #ddd;
+  cursor: pointer;
+}
+
+li:first-of-type .carousel-categories-panel-entry {
+  border-top: none;
+}
+
+.carousel-categories-panel-entry:hover {
+  background-color: #eee;
+}
+
+.carousel-categories-panel-entry-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 250px;
+}
+
+.carousel-categories-panel-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: bold;
+}
+
+.carousel-categories-panel-label {
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+@keyframes spin-halfway-open {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+@keyframes spin-halfway-close {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.carousel-categories-panel-expand-arrow.opened {
+  animation: spin-halfway-open 0.1s linear forwards;
+}
+
+.carousel-categories-panel-expand-arrow.closed {
+  animation: spin-halfway-close 0.1s linear forwards;
+}
+
+.carousel-categories-panel-item-list {
+  overflow: hidden;
+  transition: height 0.5s;
+}
+
+.carousel-categories-panel-item {
+  padding: 8px 8px 8px 24px;
+  border-top: 1px solid #ddd;
+  font-weight: 500;
+}
+
+.carousel-categories-panel-item:hover {
+  background-color: #eee;
+}
+
+/* ----------------------------------------------------------------------------
+-- Carousel content.
+------------------------------------------------------------------------------- */
+
+.carousel-content {
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+}
